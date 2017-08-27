@@ -5,6 +5,7 @@ describe "brew bundle", :integration_test, :needs_test_cmd_taps do
 
       HOMEBREW_REPOSITORY.cd do
         system "git", "init"
+        system "git", "config", "commit.gpgsign", "false"
         system "git", "commit", "--allow-empty", "-m", "This is a test commit"
       end
 

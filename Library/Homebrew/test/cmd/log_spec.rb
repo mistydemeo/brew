@@ -2,6 +2,7 @@ describe "brew log", :integration_test do
   it "shows the Git log for the Homebrew repository when no argument is given" do
     HOMEBREW_REPOSITORY.cd do
       system "git", "init"
+      system "git", "config", "commit.gpgsign", "false"
       system "git", "commit", "--allow-empty", "-m", "This is a test commit"
     end
 
@@ -17,6 +18,7 @@ describe "brew log", :integration_test do
     core_tap = CoreTap.new
     core_tap.path.cd do
       system "git", "init"
+      system "git", "config", "commit.gpgsign", "false"
       system "git", "add", "--all"
       system "git", "commit", "-m", "This is a test commit for Testball"
     end

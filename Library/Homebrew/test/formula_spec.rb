@@ -1199,6 +1199,7 @@ describe Formula do
             FileUtils.touch "LICENSE"
 
             system("git", "init")
+            system("git", "config", "commit.gpgsign", "false")
             system("git", "add", "--all")
             system("git", "commit", "-m", "Initial commit")
           end

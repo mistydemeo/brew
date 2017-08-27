@@ -143,6 +143,7 @@ describe Homebrew::MissingFormula do
 
       tap_path.cd do
         system "git", "init"
+        system "git", "config", "commit.gpgsign", "false"
         system "git", "add", "--all"
         system "git", "commit", "-m", "initial state"
         system "git", "rm", "deleted-formula.rb"

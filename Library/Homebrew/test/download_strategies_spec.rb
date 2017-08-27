@@ -154,6 +154,7 @@ describe GitDownloadStrategy do
 
   def setup_git_repo
     system "git", "init"
+    system "git", "config", "commit.gpgsign", "false"
     system "git", "remote", "add", "origin", "https://github.com/Homebrew/homebrew-foo"
     FileUtils.touch "README"
     git_commit_all

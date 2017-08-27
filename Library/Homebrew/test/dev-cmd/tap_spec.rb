@@ -4,6 +4,7 @@ describe "brew tap", :integration_test do
     path.mkpath
     path.cd do
       system "git", "init"
+      system "git", "config", "commit.gpgsign", "false"
       system "git", "remote", "add", "origin", "https://github.com/Homebrew/homebrew-foo"
       FileUtils.touch "readme"
       system "git", "add", "--all"

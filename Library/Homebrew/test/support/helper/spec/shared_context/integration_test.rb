@@ -173,6 +173,7 @@ RSpec.shared_context "integration test" do
   def install_and_rename_coretap_formula(old_name, new_name)
     CoreTap.instance.path.cd do |tap_path|
       system "git", "init"
+      system "git", "config", "commit.gpgsign", "false"
       system "git", "add", "--all"
       system "git", "commit", "-m",
         "#{old_name.capitalize} has not yet been renamed"

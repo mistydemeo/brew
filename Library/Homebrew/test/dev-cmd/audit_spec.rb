@@ -365,6 +365,7 @@ describe FormulaAuditor do
       origin_tap_path.mkpath
       origin_tap_path.cd do
         system "git", "init"
+        system "git", "config", "commit.gpgsign", "false"
         system "git", "add", "--all"
         system "git", "commit", "-m", "init"
       end

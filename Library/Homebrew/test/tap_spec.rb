@@ -53,6 +53,7 @@ describe Tap do
   def setup_git_repo
     path.cd do
       system "git", "init"
+      system "git", "config", "commit.gpgsign", "false"
       system "git", "remote", "add", "origin", "https://github.com/Homebrew/homebrew-foo"
       system "git", "add", "--all"
       system "git", "commit", "-m", "init"
@@ -103,6 +104,7 @@ describe Tap do
       path.mkpath
       cd path do
         system "git", "init"
+        system "git", "config", "commit.gpgsign", "false"
         system "git", "remote", "add", "origin",
           "https://github.com/someone/homebrew-foo"
       end
@@ -147,6 +149,7 @@ describe Tap do
       services_tap.path.mkpath
       services_tap.path.cd do
         system "git", "init"
+        system "git", "config", "commit.gpgsign", "false"
         system "git", "remote", "add", "origin", "https://github.com/Homebrew/homebrew-services"
       end
       expect(services_tap).not_to be_private

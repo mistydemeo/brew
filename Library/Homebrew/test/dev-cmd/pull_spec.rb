@@ -9,6 +9,7 @@ describe "brew pull", :integration_test do
   it "fetches a patch from a GitHub commit or pull request and applies it", :needs_network do
     CoreTap.instance.path.cd do
       system "git", "init"
+      system "git", "config", "commit.gpgsign", "false"
       system "git", "checkout", "-b", "new-branch"
     end
 
