@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# typed: ignore
+# typed: true
 
 require_relative '../real_stdlib'
 

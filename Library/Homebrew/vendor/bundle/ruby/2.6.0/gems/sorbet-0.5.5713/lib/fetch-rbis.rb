@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# typed: true
+# typed: false
 
 require_relative './step_interface'
 require_relative './t'

@@ -1,4 +1,4 @@
-# typed: strict
+# typed: true
 
 # Write this as an RBI because the gem_loader.rb file itself cannot be typed.
 # By nature, it references constants in other gems in an attempt to load them.

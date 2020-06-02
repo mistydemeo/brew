@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # frozen_string_literal: true
-# typed: ignore
+# typed: true
 
 class Sorbet; end
 module Sorbet::Private; end

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# typed: true
+# typed: false
 
 module T::Private::Methods::CallValidation
   CallValidation = T::Private::Methods::CallValidation

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# typed: ignore
+# typed: false
 
 module T::Props::Serializable
   include T::Props::Plugin

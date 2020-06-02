@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# typed: ignore
+# typed: strict
 
 # NB: This is not actually a decorator. It's just named that way for consistency
 # with DocumentDecorator and ModelDecorator (which both seem to have been written
