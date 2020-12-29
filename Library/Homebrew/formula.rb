@@ -1444,6 +1444,18 @@ class Formula
     args
   end
 
+  # Standard parameters for qmake builds.
+  def std_qmake_args
+    args = recursive_dependencies.flat_map do |dep|
+      dep_formula = dep.to_formula
+      ["INCLUDEPATH+=#{dep_formula.opt_include}", "LIBS+=-L #{dep_formula.opt_lib}"]
+    end
+
+    args << "QMAKE_APPLE_DEVICE_ARCHS=#{Hardware::CPU.arch}"
+
+    args
+  end
+
   # Standard parameters for Go builds.
   def std_go_args
     ["-trimpath", "-o", bin/name]
