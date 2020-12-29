@@ -1446,8 +1446,7 @@ class Formula
 
   # Standard parameters for qmake builds.
   def std_qmake_args
-    args = ["-early"]
-    args = args.concat recursive_dependencies.flat_map do |dep|
+    recursive_dependencies.flat_map do |dep|
       dep_formula = dep.to_formula
       variables = []
       variables << "LIBS+=-L #{dep_formula.opt_lib}" if dep_formula.opt_lib.exist?
@@ -1455,10 +1454,6 @@ class Formula
 
       variables
     end
-
-    args << "QMAKE_APPLE_DEVICE_ARCHS=#{Hardware::CPU.arch}"
-
-    args
   end
 
   # Standard parameters for Go builds.
