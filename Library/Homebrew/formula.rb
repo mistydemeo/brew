@@ -1449,7 +1449,7 @@ class Formula
     recursive_dependencies.flat_map do |dep|
       dep_formula = dep.to_formula
       variables = []
-      variables << "LIBS+=-L #{dep_formula.opt_lib}" if dep_formula.opt_lib.exist?
+      variables << "LIBS+=-L#{dep_formula.opt_lib}" if dep_formula.opt_lib.exist?
       variables << "INCLUDEPATH+=#{dep_formula.opt_include}" if dep_formula.opt_include.exist?
 
       variables
