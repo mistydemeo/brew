@@ -56,6 +56,13 @@ module Homebrew
                                               .select(&:directory?)
                                               .map { |k| Keg.new(k.resolved_path) }
       linked_kegs = outdated_kegs.select(&:linked?)
+      # It's possible for us to end up with linked formulae
+      # missing opt prefixes. These won't be found by the
+      # above check, but we still need to track them so that
+      # we can safely perform the upgrade.
+      # This sucks! Not sure why they're broken?
+      all_kegs = formulae_maybe_with_kegs.flat_map { |f| f.rack.children }
+                                              .map { |path| Keg.for(path) }
 
       if f.opt_prefix.directory?
         keg = Keg.new(f.opt_prefix.resolved_path)
@@ -98,7 +105,7 @@ module Homebrew
       # first we unlink the currently active keg for this formula otherwise it is
       # possible for the existing build to interfere with the build we are about to
       # do! Seriously, it happens!
-      outdated_kegs.each(&:unlink)
+      all_kegs.each(&:unlink)
 
       fi.install
       fi.finish
