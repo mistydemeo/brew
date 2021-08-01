@@ -22,6 +22,10 @@ module OS
         sierra:      "10.12",
         el_capitan:  "10.11",
         yosemite:    "10.10",
+        mavericks:   "10.9",
+        mountain_lion: "10.8",
+        lion:        "10.7",
+        snow_leopard: "10.6"
       }.freeze
 
       # TODO: bump version when new macOS is released or announced
